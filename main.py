@@ -2,7 +2,9 @@
 from lxml import html
 import requests
 import sys
+import os
 import urllib
+import subprocess
 from ghost import Ghost
 import re, urlparse
 
@@ -19,8 +21,8 @@ def iriToUri(iri):
 	
 #OBTENGO EL LINK DEL LIBRO
 #bajaebooks_u = unicode(raw_input('Copia la direccion de la web del libro que queres bajar: '))
-print str(sys.argv)
-print str(sys.argv[1])
+#print str(sys.argv)
+#print str(sys.argv[1])
 bajaebooks_u = str(sys.argv[1]) #Obtengo la IRI del argumento
 bajaebooks = iriToUri(bajaebooks_u)
 
@@ -41,4 +43,15 @@ result, resources = ghost.evaluate("link;")
 page = requests.get(result)
 tree = html.fromstring(page.text)
 link = tree.xpath('//*[@id="ajax_container"]/div[2]/a')[0].attrib.get('href')
+titulo = titulo.replace(" ", "_")
 urllib.urlretrieve (link, titulo+".epub")
+
+#SI QUIERE, LO CONVIERTO A MOBI
+format = str(sys.argv[2]).lower() #Que formato uso?
+print format
+if (format == 'mobi'):
+	subprocess.call("py -2 epub2mobi.py", shell=True)
+	os.remove(titulo+'.epub')
+
+
+
