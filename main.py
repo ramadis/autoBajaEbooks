@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from lxml import html
 import requests
+import sys
 import urllib
 from ghost import Ghost
 import re, urlparse
@@ -17,7 +18,10 @@ def iriToUri(iri):
     )
 	
 #OBTENGO EL LINK DEL LIBRO
-bajaebooks_u = unicode(raw_input('Copia la direccion de la web del libro que queres bajar: '))
+#bajaebooks_u = unicode(raw_input('Copia la direccion de la web del libro que queres bajar: '))
+print str(sys.argv)
+print str(sys.argv[1])
+bajaebooks_u = str(sys.argv[1]) #Obtengo la IRI del argumento
 bajaebooks = iriToUri(bajaebooks_u)
 
 #OBTENGO EL LINK DE DESCARGA SIN REDIRIGIR
