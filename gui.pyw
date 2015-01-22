@@ -28,6 +28,7 @@ class ibuc(Frame):
 		subprocess.call("py -2 main.py " + content, shell=True)
 root = Tk()
 root.title("ibuc - Descarga ebooks de bajaebooks.com")
+root.iconbitmap(default='favicon.ico')
 root.geometry("350x150")
 app = ibuc(root)
 root.mainloop()
