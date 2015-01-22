@@ -10,9 +10,9 @@ My script is already including epub2mobi.py from Juan Reyero. https://github.com
 Requiere la instalación de Calibre http://calibre-ebook.com y el seteo de EnVars
 Mi script ya incluye epub2movi.py, de Juan Reyero. https://github.com/juanre/epub2mobi
 
-Lxml - http://lxml.de/installation.html
-Requests - http://docs.python-requests.org/en/latest/
-Ghost.py - http://jeanphix.me/Ghost.py/
+*Lxml - http://lxml.de/installation.html
+*Requests - http://docs.python-requests.org/en/latest/
+*Ghost.py - http://jeanphix.me/Ghost.py/
 
 ###Instructions / Instrucciones
 Open the file gui.pyw to start using the application.
